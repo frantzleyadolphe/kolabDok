@@ -15,6 +15,9 @@
         "vite": "^7.0.4"
     },
     "dependencies": {
-        "@inertiajs/react": "^2.1.6"
+        "@inertiajs/react": "^2.1.6",
+        "@vitejs/plugin-react": "^5.0.2",
+        "react": "^19.1.1",
+        "react-dom": "^19.1.1"
     }
 }
