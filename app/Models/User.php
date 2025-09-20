@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -21,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -33,6 +33,18 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    // Relasyon ak Organization
+    public function organizations()
+    {
+        return $this->belongsToMany(Organization::class, 'organization_user');
+    }
+
+    // Relasyon ak Documents
+    public function documents()
+    {
+        return $this->hasMany(Document::class, 'owner_id');
+    }
+
     /**
      * Get the attributes that should be cast.
      *
@@ -42,7 +54,7 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password'          => 'hashed',
         ];
     }
 }
